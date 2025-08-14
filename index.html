@@ -10,7 +10,10 @@
 
   <link rel="stylesheet" href="./build/css/style.css">
 </head>
-<body class="font-space-mono flex justify-center items-center min-h-screen bg-grey-200">
+<body>
+  <header>
+    <h1 class="header">SPLI<span>TTER</span></h1>
+  </header>
   <main class="container">
     <section class="input-section">
       <div class="bill-input">
@@ -32,7 +35,10 @@
         </ul>
       </div>
       <div class="people-num-input">
-        <label for="people-num" class="label">Number of People</label>
+        <div class="label-wrapper">
+          <label for="people-num" class="label">Number of People</label>
+          <span id="people-num-error-msg" class="hidden">Can't be less than one</span>
+        </div>
         <div class="input-wrapper">
           <i class="icon"><img src="./build/images/icon-person.svg" class="icon" alt=""></i>
           <input type="number" id="people-num" name="people-num" class="input" placeholder="0">
@@ -43,14 +49,14 @@
       <div class="row">
         <h3 class="h3">Tip Amount</h3>
         <p>/ person</p>
-        <h2 id="tip-amount">$0.00</h2>
+        <h2>$<span id="tip-amount">0.00</span></h2>
       </div>
       <div class="row">
         <h3 class="h3">Total</h3>
         <p>/ person</p>
-        <h2 id="total">$0.00</h2>
+        <h2>$<span id="total">0.00</span></h2>
       </div>
-      <button type="button" class="reset-btn btn" disabled>RESET</button>
+      <button type="button" class="btn" id="reset-btn" disabled>RESET</button>
     </section>
   </main>
 </body>

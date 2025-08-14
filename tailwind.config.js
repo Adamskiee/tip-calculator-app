@@ -15,6 +15,7 @@ module.exports = {
         "grey-200": "var(--grey-200)",
         "grey-50": "var(--grey-50)",
         "white": "var(--white)",
+        "error": "var(--error)"
       },
       fontFamily: {
         "space-mono": ["Space Mono", "monospace"]

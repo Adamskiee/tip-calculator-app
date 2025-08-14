@@ -3,17 +3,16 @@
 @tailwind utilities;
 
 :root {
-    /* Primary */
     --green-300: hsl(172, 61%, 77%);
     --green-400: hsl(172, 67%, 45%);
 
-    /* Neutral */
     --green-900: hsl(183, 100%, 15%);
     --grey-500: hsl(186, 14%, 43%);
     --grey-400: hsl(184, 14%, 56%);
     --grey-200: hsl(185, 41%, 84%);
     --grey-50: hsl(189, 47%, 97%);
     --white: hsl(0, 100%, 100%);
+    --error: hsl(14, 31%, 58%);
 }
 
 @layer base{
@@ -27,8 +26,17 @@
 }
 
 @layer components {
+    body {
+        @apply font-space-mono flex flex-col justify-center gap-8 items-center min-h-screen bg-grey-200 desktop:gap-20;
+    }
+    .header {
+        @apply text-2xl tracking-[1rem] mt-10 desktop:mt-auto;
+    }
+    .header > span {
+        @apply block;
+    }
     .container {
-        @apply max-w-full bg-white min-h-screen rounded-t-3xl px-6 pt-5 pb-8 font-bold flex flex-col gap-8 desktop:flex-row desktop:max-w-[920px] desktop:min-h-full desktop:rounded-3xl desktop:p-8;
+        @apply max-w-full bg-white min-h-screen rounded-t-3xl px-6 pt-5 pb-8 font-bold flex flex-col gap-8 desktop:flex-row desktop:max-w-[920px] desktop:rounded-3xl desktop:p-8 md:min-h-full md:max-w-fit;
     }
     .input-section {
         @apply flex flex-col gap-8 px-2 pt-[13px] justify-between desktop:gap-10 desktop:px-4 desktop:pb-4;
@@ -76,8 +84,17 @@
     .row {
         @apply grid grid-cols-[1fr_auto] grid-rows-2 items-center;
     }
-    .reset-btn {
+    #reset-btn {
         @apply bg-green-400 text-green-900 h-fit mt-auto disabled:hover:bg-green-400 disabled:opacity-20 disabled:cursor-not-allowed;
+    }
+    .label-wrapper {
+        @apply flex;
+    }
+    #people-num-error-msg {
+        @apply text-error text-[0.625rem] flex-grow self-end pb-[6px] text-end;
+    }
+    .input-error {
+        @apply border-error hover:border-error focus:border-error;
     }
 
 
@@ -85,10 +102,10 @@
     .label {
         @apply text-grey-500 block mb-1.5;
     }
-    #tip-amount, #total  {
+    .row > h2  {
         @apply row-span-2 text-green-400 text-3xl
     }
     .row > p {
-        @apply order-1 text-[13px] text-grey-400
+        @apply order-1 text-[0.8125rem] text-grey-400
     }
 }
