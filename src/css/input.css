@@ -2,20 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --green-300: hsl(172, 61%, 77%);
-    --green-400: hsl(172, 67%, 45%);
+@layer base {
+    :root {
+        --green-300: hsl(172, 61%, 77%);
+        --green-400: hsl(172, 67%, 45%);
 
-    --green-900: hsl(183, 100%, 15%);
-    --grey-500: hsl(186, 14%, 43%);
-    --grey-400: hsl(184, 14%, 56%);
-    --grey-200: hsl(185, 41%, 84%);
-    --grey-50: hsl(189, 47%, 97%);
-    --white: hsl(0, 100%, 100%);
-    --error: hsl(14, 31%, 58%);
-}
+        --green-900: hsl(183, 100%, 15%);
+        --grey-500: hsl(186, 14%, 43%);
+        --grey-400: hsl(184, 14%, 56%);
+        --grey-200: hsl(185, 41%, 84%);
+        --grey-50: hsl(189, 47%, 97%);
+        --white: hsl(0, 100%, 100%);
+        --error: hsl(14, 31%, 58%);
+    }
 
-@layer base{
     @font-face {
         font-family: "Space Mono";
         src: url(../fonts/SpaceMono-Bold.ttf) format("truetype");
@@ -26,6 +26,7 @@
 }
 
 @layer components {
+    /* Layouts */
     body {
         @apply font-space-mono flex flex-col justify-center gap-8 items-center min-h-screen bg-grey-200 desktop:gap-20;
     }
@@ -36,14 +37,65 @@
         @apply block;
     }
     .container {
-        @apply max-w-full bg-white min-h-screen rounded-t-3xl px-6 pt-5 pb-8 font-bold flex flex-col gap-8 desktop:flex-row desktop:max-w-[920px] desktop:rounded-3xl desktop:p-8 md:min-h-full md:max-w-fit;
+        @apply max-w-full bg-white min-h-screen rounded-t-3xl px-6 pt-5 pb-8 font-bold flex flex-col gap-8 desktop:flex-row desktop:max-w-[57.5rem] desktop:rounded-3xl desktop:p-8 md:min-h-full md:max-w-fit;
     }
     .input-section {
-        @apply flex flex-col gap-8 px-2 pt-[13px] justify-between desktop:gap-10 desktop:px-4 desktop:pb-4;
+        @apply flex flex-col gap-8 px-2 pt-[0.8125rem] justify-between desktop:gap-10 desktop:px-4 desktop:pb-4;
     }
+    .input-wrapper {
+        @apply relative;
+    }
+    .icon {
+        @apply absolute top-1/2 -translate-y-1/2  aspect-auto left-2 h-4 w-3;
+    }
+    .tips {
+        @apply grid grid-cols-2 gap-4 mt-[0.625rem] desktop:grid-cols-3 desktop:gap-x-3;
+    }
+    .tips #custom {
+        @apply ps-0;
+    }
+    .calculate-section {
+        @apply bg-green-900 rounded-[0.875rem] ps-6 pe-5 pt-9 pb-6 text-white flex gap-7 flex-grow flex-col w-full desktop:gap-[3.375rem] desktop:px-10 desktop:pt-14 desktop:pb-10;
+    }
+    .row {
+        @apply grid grid-cols-[1fr_auto] grid-rows-2 items-center;
+    }
+    .label-wrapper {
+        @apply flex;
+    }
+    .label {
+        @apply text-grey-500 block mb-1.5;
+    }
+    .row > h2  {
+        @apply row-span-2 text-green-400 text-3xl
+    }
+    .row > p {
+        @apply order-1 text-[0.8125rem] text-grey-400
+    }
+
+    /* Inputs */
     .input {
-        @apply bg-grey-50 rounded ps-8 py-[6px] pe-4 border-2 border-transparent text-end placeholder:text-grey-400 text-2xl text-green-900 w-full h-full placeholder:text-end hover:border-green-400 outline-none focus:border-green-400;
+        @apply bg-grey-50 rounded ps-8 py-[0.375rem] pe-4 border-2 border-transparent text-end placeholder:text-grey-400 text-2xl text-green-900 w-full h-full placeholder:text-end hover:border-green-400 outline-none focus:border-green-400;
     }
+
+    /* Buttons */
+    .btn {
+        @apply text-2xl bg-green-900 rounded w-full py-2.5 text-white cursor-pointer hover:bg-green-300 hover:text-green-900;
+    }
+    #reset-btn {
+        @apply bg-green-400 text-green-900 h-fit mt-auto disabled:hover:bg-green-400 disabled:opacity-20 disabled:cursor-not-allowed;
+    }
+
+    /* States */
+    #people-num-error-msg {
+        @apply text-error text-[0.625rem] flex-grow self-end pb-[0.375rem] text-end;
+    }
+    .active-tip {
+        @apply  bg-green-400 text-green-900;
+    }
+}
+
+@layer utilities {
     /* Chrome, Safari, Edge, Opera */
     .input::-webkit-outer-spin-button,
     .input::-webkit-inner-spin-button {
@@ -55,57 +107,12 @@
     .input[type=number] {
         appearance: textfield;
     }
-    .input-wrapper {
-        @apply relative;
-    }
-    .icon {
-        @apply absolute top-1/2 -translate-y-1/2  aspect-auto left-2 h-4 w-3;
-    }
 
-    .tips {
-        @apply grid grid-cols-2 gap-4 mt-[10px] desktop:grid-cols-3 desktop:gap-x-3;
-    }
-    .btn {
-        @apply text-2xl bg-green-900 rounded w-full py-2.5 text-white cursor-pointer hover:bg-green-300 hover:text-green-900;
-    }
-    .active-tip {
-        @apply  bg-green-400 text-green-900;
-    }
     #custom::placeholder {
         @apply text-grey-500;
     }
-    .tips #custom {
-        @apply ps-0;
-    }
 
-    .calculate-section {
-        @apply bg-green-900 rounded-[14px] ps-6 pe-5 pt-9 pb-6 text-white flex gap-7 flex-grow flex-col w-full desktop:gap-[54px] desktop:px-10 desktop:pt-14 desktop:pb-10;
-    }
-    .row {
-        @apply grid grid-cols-[1fr_auto] grid-rows-2 items-center;
-    }
-    #reset-btn {
-        @apply bg-green-400 text-green-900 h-fit mt-auto disabled:hover:bg-green-400 disabled:opacity-20 disabled:cursor-not-allowed;
-    }
-    .label-wrapper {
-        @apply flex;
-    }
-    #people-num-error-msg {
-        @apply text-error text-[0.625rem] flex-grow self-end pb-[6px] text-end;
-    }
     .input-error {
         @apply border-error hover:border-error focus:border-error;
-    }
-
-
-    /* Text styles */
-    .label {
-        @apply text-grey-500 block mb-1.5;
-    }
-    .row > h2  {
-        @apply row-span-2 text-green-400 text-3xl
-    }
-    .row > p {
-        @apply order-1 text-[0.8125rem] text-grey-400
     }
 }
