@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Primary */
+    --green-300: hsl(172, 61%, 77%);
+    --green-400: hsl(172, 67%, 45%);
+
+    /* Neutral */
+    --green-900: hsl(183, 100%, 15%);
+    --grey-500: hsl(186, 14%, 43%);
+    --grey-400: hsl(184, 14%, 56%);
+    --grey-200: hsl(185, 41%, 84%);
+    --grey-50: hsl(189, 47%, 97%);
+    --white: hsl(0, 100%, 100%);
+}
+
+@layer base{
+    @font-face {
+        font-family: "Space Mono";
+        src: url(../fonts/SpaceMono-Bold.ttf) format("truetype");
+        font-display: swap;
+        font-style: normal;
+        font-weight: 700;
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-full bg-white min-h-screen rounded-t-3xl px-6 pt-5 pb-8 font-bold flex flex-col gap-8 desktop:flex-row desktop:max-w-[920px] desktop:min-h-full desktop:rounded-3xl desktop:p-8;
+    }
+    .input-section {
+        @apply flex flex-col gap-8 px-2 pt-[13px] justify-between desktop:gap-10 desktop:px-4 desktop:pb-4;
+    }
+    .input {
+        @apply bg-grey-50 rounded ps-8 py-[6px] pe-4 border-2 border-transparent text-end placeholder:text-grey-400 text-2xl text-green-900 w-full h-full placeholder:text-end hover:border-green-400 outline-none focus:border-green-400;
+    }
+    /* Chrome, Safari, Edge, Opera */
+    .input::-webkit-outer-spin-button,
+    .input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    .input[type=number] {
+        appearance: textfield;
+    }
+    .input-wrapper {
+        @apply relative;
+    }
+    .icon {
+        @apply absolute top-1/2 -translate-y-1/2  aspect-auto left-2 h-4 w-3;
+    }
+
+    .tips {
+        @apply grid grid-cols-2 gap-4 mt-[10px] desktop:grid-cols-3 desktop:gap-x-3;
+    }
+    .btn {
+        @apply text-2xl bg-green-900 rounded w-full py-2.5 text-white cursor-pointer hover:bg-green-300 hover:text-green-900;
+    }
+    .active-tip {
+        @apply  bg-green-400 text-green-900;
+    }
+    #custom::placeholder {
+        @apply text-grey-500;
+    }
+    .tips #custom {
+        @apply ps-0;
+    }
+
+    .calculate-section {
+        @apply bg-green-900 rounded-[14px] ps-6 pe-5 pt-9 pb-6 text-white flex gap-7 flex-grow flex-col w-full desktop:gap-[54px] desktop:px-10 desktop:pt-14 desktop:pb-10;
+    }
+    .row {
+        @apply grid grid-cols-[1fr_auto] grid-rows-2 items-center;
+    }
+    .reset-btn {
+        @apply bg-green-400 text-green-900 h-fit mt-auto disabled:hover:bg-green-400 disabled:opacity-20 disabled:cursor-not-allowed;
+    }
+
+
+    /* Text styles */
+    .label {
+        @apply text-grey-500 block mb-1.5;
+    }
+    #tip-amount, #total  {
+        @apply row-span-2 text-green-400 text-3xl
+    }
+    .row > p {
+        @apply order-1 text-[13px] text-grey-400
+    }
+}

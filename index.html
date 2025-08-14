@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./build/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <link rel="stylesheet" href="./build/css/style.css">
+</head>
+<body class="font-space-mono flex justify-center items-center min-h-screen bg-grey-200">
+  <main class="container">
+    <section class="input-section">
+      <div class="bill-input">
+        <label for="bill" class="label">Bill</label>
+        <div class="input-wrapper">
+          <i class="icon"><img src="./build/images/icon-dollar.svg" class="icon" alt=""></i>
+          <input type="number" name="bill" id="bill" class="input" placeholder="0">
+        </div>
+      </div>
+      <div class="tip-select">
+        <label for="tips" class="label">Select Tips %</label>
+        <ul id="tips" class="tips">
+          <li><input type="button" class="btn tip" data-percent="5" value="5%"></li>
+          <li><input type="button" class="btn tip" data-percent="10" value="10%"></li>
+          <li><input type="button" class="btn tip" data-percent="15" value="15%"></li>
+          <li><input type="button" class="btn tip" data-percent="25" value="25%"></li>
+          <li><input type="button" class="btn tip" data-percent="50" value="50%"></li>
+          <li><input type="number" class="input tip" data-percent="custom" id="custom" placeholder="Custom"></li>
+        </ul>
+      </div>
+      <div class="people-num-input">
+        <label for="people-num" class="label">Number of People</label>
+        <div class="input-wrapper">
+          <i class="icon"><img src="./build/images/icon-person.svg" class="icon" alt=""></i>
+          <input type="number" id="people-num" name="people-num" class="input" placeholder="0">
+        </div>
+      </div>
+    </section>
+    <section class="calculate-section">
+      <div class="row">
+        <h3 class="h3">Tip Amount</h3>
+        <p>/ person</p>
+        <h2 id="tip-amount">$0.00</h2>
+      </div>
+      <div class="row">
+        <h3 class="h3">Total</h3>
+        <p>/ person</p>
+        <h2 id="total">$0.00</h2>
+      </div>
+      <button type="button" class="reset-btn btn" disabled>RESET</button>
+    </section>
+  </main>
+</body>
+<script src="src/js/main.js"></script>
+</html>
