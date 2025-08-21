@@ -35,9 +35,9 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub URL](https://github.com/Adamskiee/tip-calculator-app)
+- Solution URL: [GitHub URL](https://github.com/adamskiee-frontendmentor-projects/tip-calculator-app)
 - Figma Solution URL: [Figma URL](https://www.figma.com/design/5rpFA9pHeDjQlJWjBces7v/Tip-Calculator-App?node-id=0-1&p=f&t=i6t3ENPuwb1Bqd7p-0)
-- Live Site URL: [Live Site URL](https://adamskiee.github.io/tip-calculator-app)
+- Live Site URL: [Live Site URL](https://adamskiee-frontendmentor-projects.github.io/tip-calculator-app)
 
 ## My process
 
